@@ -1,0 +1,16 @@
+[tcarrigan@server demo]$ ls -l
+total 4
+-rw-rw-r--. 1 tcarrigan tcarrigan 12 Aug 29 14:27 link_test
+Take note of the link count here (1).
+
+Next, I create a new hard link in /tmp to the exact same file using the following command:
+
+[tcarrigan@server demo]$ ln link_test /tmp/link_new
+The syntax is ln (original file path) (new file path).
+
+Now when I look at my filesystem, I see both hard links.
+
+[tcarrigan@server demo]$ ls -l link_test /tmp/link_new 
+-rw-rw-r--. 2 tcarrigan tcarrigan 12 Aug 29 14:27 link_test
+-rw-rw-r--. 2 tcarrigan tcarrigan 12 Aug 29 14:27 /tmp/link_new
+The primary difference here is the filename. The link count has also been changed (2). Most notably, if I cat the new file's contents, it displays the original data.

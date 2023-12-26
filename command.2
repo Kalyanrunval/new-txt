@@ -1,0 +1,9 @@
+The concept of a hard link is the most basic we will discuss today. 
+Every file on the Linux filesystem starts with a single hard link.
+The link is between the filename and the actual data stored on the filesystem. 
+Creating an additional hard link to a file means a few different things. Let's discuss these.
+
+First, you create a new filename pointing to the exact same data as the old filename.
+This means that the two filenames, though different, point to identical data. 
+For example, if I create file /home/tcarrigan/demo/link_test and write hello world in the file,
+I have a single hard link between the file name link_test and the file content hello world.
